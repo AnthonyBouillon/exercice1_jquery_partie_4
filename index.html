@@ -16,25 +16,31 @@
   <script src="jquery-3.2.1.js"></script>
   <script>
   $(function(){
-  var numberGames = 0;
-  var numberWin = 0;
-  var percentWin = 0;
-  $('#button').click(function(){
-    numberGames++;
-    var choiceBot = Math.floor(Math.random()*3)+1;
-    var myChoice = $('select').val();
-    if(choiceBot == myChoice){
-      alert('Egalité');
-    }else if((choiceBot == 3 && myChoice == 2)||(choiceBot == 2 && myChoice == 1)||(choiceBot == 1 && myChoice == 3)){
-      alert('Perdu');
-    }else{
-      numberWin++;
-      alert('Gagné');
-    }
-    percentWin = numberWin*100/numberGames;
-    alert(percentWin + '%');
+    //nombre de partie
+    var numberGames = 0;
+    //nombre de partie gagné
+    var numberWin = 0;
+    //pourcentage
+    var percentWin = 0;
+    $('#button').click(function(){
+      // 0 + 1
+      numberGames++;
+      var choiceBot = Math.floor(Math.random()*3)+1;
+      var myChoice = $('select').val();
+      if(choiceBot == myChoice){
+        alert('Egalité');
+      }else if((choiceBot == 3 && myChoice == 2)||(choiceBot == 2 && myChoice == 1)||(choiceBot == 1 && myChoice == 3)){
+        alert('Perdu');
+      }else{
+        //nombre de win + 1 a chaque partie gagné
+        numberWin++;
+        alert('Gagné');
+      }
+      // pourcetage nombre de gagné * 100 / numbre de partie
+      percentWin = numberWin*100/numberGames;
+      alert(percentWin + '%');
+    });
   });
-});
   </script>
 </body>
 </html>
